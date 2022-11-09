@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    './node_modules/tw-elements/dist/js/**/*.js'
   ],
   theme: {
     extend: {},
@@ -71,5 +72,5 @@ module.exports = {
   fontFamily: {
     quicksand: ["Quicksand", "sans-serif"],
   },
-  plugins: [],
+  plugins: [require('tw-elements/dist/plugin')],
 }

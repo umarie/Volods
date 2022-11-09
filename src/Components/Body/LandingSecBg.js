@@ -29,9 +29,9 @@ export default function LandingSecBg(props) {
     <>
     <div className='h-[800px] bg-[#131313]'>
         <img src={planet1} className="fixed left-[4%] top-[100px] animate-spin opacity-60 w-10 h-10" alt='planet'/>
-        <img src={planet2} className="fixed left-[20%] top-[500px]  animate-spin opacity-60 w-12 h-12 xl:left-[10%]" alt='planet'/>
-        <img src={planet3} className="fixed left-[55%] top-[300px] animate-spin opacity-30 w-8 h-8 xl:left-96" alt='planet'/>
-        <img src={planet4} className="fixed left-[60%] top-[600px] animate-spin opacity-60 w-6 h-6 xl:left-[90%]" alt='planet'/>
+        <img src={planet2} className="fixed left-[20%] top-[500px]  animate-spin opacity-60 w-14 h-14 xl:left-[10%]" alt='planet'/>
+        <img src={planet3} className="fixed left-[55%] top-[300px] animate-spin opacity-30 w-11 h-11 xl:left-96" alt='planet'/>
+        <img src={planet4} className="fixed left-[60%] top-[600px] animate-spin opacity-60 w-8 h-8 xl:left-[90%]" alt='planet'/>
         {gradient && <img src={gradientpic} className='w-[40%] h-[70%] animate-slidedown max-w-2xl max-h-[600px] absolute left-[50%] top-[15%] z-1' alt='gradient'/>}
         {gradient && <img src={rocket} className='w-[15%] h-[40%] max-w-2xl max-h-[500px] absolute rotate-12 left-[70%] z-1' alt='gradient'/>}
         

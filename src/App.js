@@ -5,10 +5,10 @@ import DevFormPage from './components/Forms/DevFormPage';
 import ThanksPage from './components/Forms/ThanksPage';
 function App() {
   return (
-    // <ThanksPage/>
     <div className='bg-background h-full'>
-       <DevFormPage/>
-       {/* <ClientFormPage/> */}
+      {/* <ThanksPage/> */}
+       {/* <DevFormPage/> */}
+       <ClientFormPage/>
     </div>
   );
 }

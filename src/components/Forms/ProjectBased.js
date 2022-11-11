@@ -1,5 +1,7 @@
-
+import { useState } from "react";
 const ProjectBased = (props) => {
+  const [desc, setDesc]=useState("-");
+
   return (
     <div>
       <div className="flex flex-wrap -mx-3 mb-3">
@@ -14,11 +16,21 @@ const ProjectBased = (props) => {
             placeholder="IOS app that will allow the users to book flights, hotel rooms....  "
             onChange={(event) => {
               props.setDescription(event.target.body);
+              setDesc(event.target.value)
             }}
           />
+           {
+                   desc===""?(<p className="text-red text-xs italic">Please fill out this field</p>
+                    ):<></>
+
+           }
+            
+            {desc===""?props.setSubmitValid(false):props.setSubmitValid(true)}
+            
+        </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

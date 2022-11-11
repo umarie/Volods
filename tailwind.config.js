@@ -10,7 +10,7 @@ module.exports = {
      
       // => @media (min-width: 640px) { ... }
 
-      'md': '768px',
+      'md': '800px',
       // => @media (min-width: 768px) { ... }
       'lg': '1024px',
       // => @media (min-width: 1024px) { ... }
@@ -72,6 +72,5 @@ module.exports = {
   fontFamily: {
     quicksand: ["Quicksand", "sans-serif"],
   },
-  plugins: [require('tw-elements/dist/plugin'),
-  require("daisyui")],
+  plugins: [require('tw-elements/dist/plugin')],
 }

@@ -2,6 +2,9 @@ import React from "react";
 import Footer from "../Components/Layout/Footer";
 import NavBar from "../Components/Layout/NavBar";
 import volods from "../Images/volodslogo.png";
+import person1 from "../Images/person1.png";
+import person2 from "../Images/person2.png";
+import person3 from "../Images/person3.png";
 
 export default function AboutUs() {
   return (
@@ -9,7 +12,9 @@ export default function AboutUs() {
       <NavBar />
       <div className="h-auto bg-[#131313]">
         <div className="flex flex-col justify-center items-center pt-10">
-          <h1 className="text-[#94C0D9] text-2xl font-[quicksand] md:text-3xl">WE ARE</h1>
+          <h1 className="text-[#94C0D9] text-2xl font-[quicksand] md:text-3xl">
+            WE ARE
+          </h1>
           <img src={volods} className="w-96 h-48" alt="logo" />
           <p className="text-lg p-5 text-white font-[quicksand] text-center  md:text-xl lg:pl-28 lg:pr-28 xl:pl-72 xl:pr-72">
             Not very long time ago when our founders wanted to hire developers
@@ -49,8 +54,25 @@ export default function AboutUs() {
           <h1 className="text-[#94C0D9] text-2xl mt-14 font-[quicksand] md:text-4xl">
             Our Lead
           </h1>
+          <div className="flex flex-col justify-center items-center mt-10 md:mt-16 md:flex-row">
+            <div className="mt-10 md:mt-0 ">
+              <img src={person2} className='w-28 ml-3 md:mt-3 hover:opacity-30' alt="robot" />
+              <h1 className="text-[#94c0d9] font-[quicksand] text-center text-xl md:mt-3">Taimur Hussain</h1>
+              <h2 className="text-white font-[quicksand] text-center">Co-founder - CEO</h2>
+            </div>
+            <div className="mt-10 md:mt-0 md:ml-20">
+              <img src={person1} className='w-28 ml-3 hover:opacity-30' alt="robot" />
+              <h1 className="text-[#94c0d9] font-[quicksand] text-center text-xl">Umair Farooq</h1>
+              <h2 className="text-white font-[quicksand] text-center">Co-founder - CTO</h2>
+            </div>
+            <div className="mt-10 md:mt-0 md:ml-20 ">
+              <img src={person3} className='w-28 ml-3 hover:opacity-30' alt="robot" />
+              <h1 className="text-[#94c0d9] font-[quicksand] text-center text-xl">Harris Aamir</h1>
+              <h2 className="text-white font-[quicksand] text-center">Co-founder - COO</h2>
+            </div>
+          </div>
 
-          <h1 className="text-[#94C0D9] text-2xl mt-10 font-[quicksand] md:text-4xl">
+          <h1 className="text-[#94C0D9] text-2xl mt-16 font-[quicksand] md:text-4xl">
             Work for us
           </h1>
           <p className="text-md p-3 text-white font-[quicksand] text-center  md:text-xl">
@@ -77,7 +99,7 @@ export default function AboutUs() {
           </p>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

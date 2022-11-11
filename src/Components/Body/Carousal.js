@@ -1,8 +1,8 @@
 import React from 'react'
 import skull from '../../Images/skull400.png'
 import hand from '../../Images/Hand400.png'
-import inspection from '../../Images/Inspection400.png'
-import matched from '../../Images/DeveloperIsMatched400.png'
+import inspection from '../../Images/inspection400.png'
+import matched from '../../Images/dev400.png'
 
 export default function Carousal() {
   return (

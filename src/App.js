@@ -11,6 +11,8 @@ import WhyUs from './Components/Body/WhyUs';
 import HowItWorks from './Components/Body/HowItWorks';
 import DevTest from './Components/Body/DevTest';
 import Footer from './Components/Layout/Footer';
+import AboutUs from './Pages/AboutUs';
+import Services from './Pages/Services';
 
 function App() {
 
@@ -26,15 +28,23 @@ function App() {
   return (
     <>
     {!disappearLoadingPage && <LoadingPage/>}
-    {disappearLoadingPage && <NavBar/>}
+
+
+    
+    {/* {disappearLoadingPage && <NavBar/>}
     {disappearLoadingPage && <LandingSecPage/>}
     {disappearLoadingPage && <WhyUs/>}
     {disappearLoadingPage && <HowItWorks/>}
     {disappearLoadingPage && <DevTest/>}
-    {disappearLoadingPage && <Footer/>}
+    {disappearLoadingPage && <Footer/>} */}
     <Routes>
-        <Route path="/hj" element={<LandingSecPage />}/>
+        <Route path="/" element={disappearLoadingPage && [<NavBar/>,<LandingSecPage/>,<WhyUs/>,
+      <HowItWorks/>, <DevTest/>, <Footer/>]}/>
+      
+        <Route path="/aboutus" element={<AboutUs />}/>
+        <Route path="/services" element={<Services />}/>
     </Routes>
+
     </>
   );
 }

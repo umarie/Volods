@@ -49,17 +49,17 @@ export default function NavBar() {
             </div>
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link to="/" className="nav-links hover:scale-90 hover:text-[#94C0D9]" onClick={closeMobileMenu}>
+                <Link to="/aboutus" className="nav-links hover:scale-90 hover:text-[#94C0D9]" onClick={closeMobileMenu}>
                   About Us
                 </Link>
               </li>
               <li className="nav-item">
                 <Link
-                  to="/about"
+                  to="/services"
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
-                  Contact
+                  Our Services
                 </Link>
               </li>
             {!logo && <Link to="/" onClick={closeMobileMenu}>
@@ -71,7 +71,7 @@ export default function NavBar() {
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
-                  Hire
+                  Hire Talent
                 </Link>
               </li>
               <li className="nav-item">

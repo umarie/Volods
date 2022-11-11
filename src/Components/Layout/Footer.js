@@ -96,15 +96,15 @@ export default function Footer() {
           </div>
 
           <span className="flex flex-col items-center lg:flex-row mb-10">
-            <p className="text-white font-[quicksand] mb-3 lg:ml-8">
+            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
               Privacy Policy
             </p>
-            <p className="text-white font-[quicksand] mb-3 lg:ml-8">
+            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
               Terms & conditions
             </p>
-            <p className="text-white font-[quicksand] mb-3 lg:ml-8">About us</p>
-            <p className="text-white font-[quicksand] mb-3 lg:ml-8">Careers</p>
-            <p className="text-white font-[quicksand] mb-5 lg:ml-8">FAQ's</p>
+            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">About us</p>
+            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">Careers</p>
+            <p className="text-white font-[quicksand] mb-5 lg:ml-8 hover:cursor-pointer">FAQ's</p>
           </span>
         </div>
         <p className="text-white text-[10px] flex justify-center font-[quicksand]">

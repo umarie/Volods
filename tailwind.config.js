@@ -72,5 +72,6 @@ module.exports = {
   fontFamily: {
     quicksand: ["Quicksand", "sans-serif"],
   },
-  plugins: [require('tw-elements/dist/plugin')],
+  plugins: [require('tw-elements/dist/plugin'),
+  require("daisyui")],
 }

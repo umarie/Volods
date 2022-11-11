@@ -1,43 +1,83 @@
-import { useState } from "react";
-
-const Form = () => {
-  const [firstName, setfirstName] = useState("");
-  const [lastName, setlastName] = useState("");
-  const [email, setemail] = useState("");
-  const [hourlyRate, sethourlyRate] = useState("");
-  const [monthlyRate, setmonthlyRate] = useState("");
-  const [positionTitle, setpositionTitle] = useState("");
-  const [linkedIn, setLinkedIn]=useState("");
-  const [selectedFile, setSelectedFile] = useState();
-  const [IsSelected, setIsSelected] = useState(false);
-  const [submitValid, setsubmitValid] = useState(true);
-  
+import react,{ useState } from "react";
+import axios from "axios";
+const ClientForm = () => {
+  const [firstName, setfirstName] = useState("-");
+  const [lastName, setlastName] = useState("-");
+  const [email, setemail] = useState("-");
+  const [hourlyRate, sethourlyRate] = useState("-");
+  const [monthlyRate, setmonthlyRate] = useState("-");
+  const [positionTitle, setpositionTitle] = useState("-");
+  const [linkedIn, setLinkedIn] = useState('https://www.linkedin.com/');
+  const [selectedFile, setSelectedFile] = useState(true);
+  const [IsSelected, setIsSelected] = useState(true);
+  const [submitValid, setsubmitValid] = useState(false);
+  const formData = new FormData();
 
   const submitHandler = () => {
-  
-      const developers = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        hourlyRate: hourlyRate,
-        monthlyRate: monthlyRate,
-        linkedIn:linkedIn,
-        positionTitle: positionTitle,
-        
-      };
+    const developer = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      hourlyRate: hourlyRate,
+      monthlyRate: monthlyRate,
+      linkedIn: linkedIn,
+      positionTitle: positionTitle,
+    };
+
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("hourlyRate", hourlyRate);
+    formData.append("monthlyRate", monthlyRate);
+    formData.append("linkedIn", linkedIn);
+    formData.append("positionTitle", positionTitle);
+    formData.append("resume",selectedFile);
+
+    // console.log(selectedFile);
+    // console.log(developer);
+  //   fetch("https://nocodeform.io/f/6366953e5c61679c1717457b", {
+  //     method: "POST",
+  //     body: formData,
+  //     {
+  //       headers: {
+  //           "Content-type": "multipart/form-data",
+  //       },                    
+  //   })
+  //     .then((response) => console.log(response))
+  //     .catch((error) => console.log(error));
+  // };
+
+  axios({
+    url: 'https://nocodeform.io/f/63688c043ca7851619c75de3',
+    method: 'POST',
+    headers: {
+      'content-type': 'multipart/form-data',
+    },
+    data: {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      hourlyRate: hourlyRate,
+      monthlyRate: monthlyRate,
+      linkedIn: linkedIn,
+      positionTitle: positionTitle,
+      resume:selectedFile
     }
-    const checkValid=()=>{
-      (
-        firstName === "INVALID" ||
-        lastName === "INVALID" ||
-        email === "INVALID" ||
-        hourlyRate === "INVALID_<=0" ||
-        hourlyRate === "INVALID_>1000" ||
-        monthlyRate === "INVALID" || 
-        linkedIn ==="INVALID" ||
-        positionTitle === "INVALID"
-      )?setsubmitValid(false): setsubmitValid(true);
-    }
+  }).then((response) => {
+    console.log(response);
+  })
+  }
+  const checkValid = () => {
+   if (firstName === "INVALID" ||
+    lastName === "INVALID" ||
+    email === "INVALID" ||
+    hourlyRate === "INVALID_<=0" ||
+    hourlyRate === "INVALID_>1000" ||
+    monthlyRate === "INVALID" ||
+    positionTitle === "INVALID")
+      return false
+      else  return true;
+  };
   return (
     <div className="container bg-background">
       <div className="w-8/12 rounded-xl  shadow-lg text-white mt-10 mx-auto ">
@@ -52,7 +92,7 @@ const Form = () => {
                 First Name
               </label>
               <input
-                class="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                className="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 id="grid-first-name"
                 type="text"
                 placeholder="Kevin"
@@ -64,24 +104,24 @@ const Form = () => {
                 }}
               />
               {firstName.length <= 0 ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Please fill out this field.
                 </p>
               ) : (
                 <></>
               )}
               {firstName === "INVALID" ? (
-                <p class="text-red text-xs italic">Enter valid first name.</p>
+                <p className="text-red text-xs italic">Enter valid first name.</p>
               ) : (
                 <></>
               )}
             </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">
+            <div className="w-full md:w-1/2 px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">
                 Last Name
               </label>
               <input
-                class="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded mb-3 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded mb-3 py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-last-name"
                 type="text"
                 placeholder="Jon"
@@ -90,33 +130,33 @@ const Form = () => {
                     setlastName(event.target.value);
                   else setlastName("INVALID");
 
-                  checkValid(); 
+                  checkValid();
                 }}
               />
               {lastName.length <= 0 ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Please fill out this field.
                 </p>
               ) : (
                 <></>
               )}
               {lastName === "INVALID" ? (
-                <p class="text-red text-xs italic">Enter valid last name.</p>
+                <p className="text-red text-xs italic">Enter valid last name.</p>
               ) : (
                 <></>
               )}
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-3">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray text-s font-bold mb-2">
+          <div className="flex flex-wrap -mx-3 mb-3">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray text-s font-bold mb-2">
                 Email
               </label>
               <input
-                class=" text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className=" text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-password"
                 type="email"
-                placeholder="KevinJone@gmail.com"
+                placeholder="KevinJon@gmail.com"
                 onChange={(event) => {
                   const validateEmail = (email) => {
                     return email.match(
@@ -126,18 +166,17 @@ const Form = () => {
                   if (validateEmail(event.target.value))
                     setemail(event.target.value);
                   else setemail("INVALID");
-
                 }}
               />
               {email.length <= 0 ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Please fill out this field.
                 </p>
               ) : (
                 <></>
               )}
               {email === "INVALID" ? (
-                <p class="text-red text-xs italic">Invalid Email</p>
+                <p className="text-red text-xs italic">Invalid Email</p>
               ) : (
                 <></>
               )}
@@ -147,11 +186,10 @@ const Form = () => {
           <div className="flex flex-wrap -mx-3 mb-3">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label className=" block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">
-                <input className="mr-2 leading-tight mb-2" type="checkbox" />
                 Hourly Rate $
               </label>
               <input
-                class="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                className="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 id="grid-first-name"
                 type="number"
                 placeholder="$15"
@@ -166,34 +204,34 @@ const Form = () => {
                 }}
               />
               {hourlyRate.length <= 0 ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Please fill out this field.
                 </p>
               ) : (
                 <></>
               )}
               {hourlyRate === "INVALID_>1000" ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Hourly rate cannot be more then 10000.
                 </p>
               ) : (
                 <></>
               )}
               {hourlyRate === "INVALID_<=0" ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Hourly rate cannot be less then $1.
                 </p>
               ) : (
                 <></>
               )}
             </div>
-            <div class="w-full md:w-1/2 px-3">
-              <label class="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">
-                <input className="mr-2 leading-tight mb-2" type="checkbox" />
+            <div className="w-full md:w-1/2 px-3">
+              <label className="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">
+              
                 Monthly Rate
               </label>
               <input
-                class="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 mb-3 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className="text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 mb-3 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-last-name"
                 type="number"
                 placeholder="$50"
@@ -207,14 +245,14 @@ const Form = () => {
                 }}
               />
               {monthlyRate.length <= 0 ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Please fill out this field.
                 </p>
               ) : (
                 <></>
               )}
               {monthlyRate === "INVALID" ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Monthly rate cannot be less then $1 .
                 </p>
               ) : (
@@ -222,13 +260,13 @@ const Form = () => {
               )}
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-3">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray text-s font-bold mb-2">
+          <div className="flex flex-wrap -mx-3 mb-3">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray text-s font-bold mb-2">
                 Position Title
               </label>
               <input
-                class=" text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className=" text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-password"
                 type="text"
                 placeholder="Senior Software Engineer"
@@ -240,14 +278,14 @@ const Form = () => {
                 }}
               />
               {positionTitle.length <= 0 ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Please fill out this field.
                 </p>
               ) : (
                 <></>
               )}
               {positionTitle === "INVALID" ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Enter valid position title
                 </p>
               ) : (
@@ -255,40 +293,39 @@ const Form = () => {
               )}
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-3">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray text-s font-bold mb-2">
+          <div className="flex flex-wrap -mx-3 mb-3">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray text-s font-bold mb-2">
                 LinkedIn Profile link
               </label>
               <input
-                class=" text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                className=" text-background appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-password"
                 type="text"
-                placeholder="https://www.linkedin.com/KevinJ"
+                defaultValue="https://www.linkedin.com/"
                 onChange={(event) => {
-                 
                   if (event.target.value.includes("linkedin.com"))
-                  setLinkedIn(event.target.value);
+                    setLinkedIn(event.target.value);
                   else setLinkedIn("INVALID");
                 }}
               />
               {linkedIn.length <= 0 ? (
-                <p class="text-red text-xs italic">
+                <p className="text-red text-xs italic">
                   Please fill out this field.
                 </p>
               ) : (
                 <></>
               )}
               {linkedIn === "INVALID" ? (
-                <p class="text-red text-xs italic">Invalid Link</p>
+                <p className="text-red text-xs italic">Invalid Link</p>
               ) : (
                 <></>
               )}
             </div>
           </div>
-          <div class="flex flex-wrap -mx-3 mb-3">
-            <div class="w-full px-3">
-              <label class="block uppercase tracking-wide text-gray text-s font-bold mb-2">
+          <div className="flex flex-wrap -mx-3 mb-3">
+            <div className="w-full px-3">
+              <label className="block uppercase tracking-wide text-gray text-s font-bold mb-2">
                 Please Upload your updated Resume
               </label>
               <input
@@ -296,9 +333,9 @@ const Form = () => {
                 aria-describedby="file_input_help"
                 id="file_input"
                 type="file"
-                onChange={(event)=>{
+                onChange={(event) => {
                   setSelectedFile(event.target.files[0]);
-	                setIsSelected(true);
+                  setIsSelected(true);
                   checkValid();
                 }}
               />
@@ -308,27 +345,28 @@ const Form = () => {
               >
                 PDF or Word (MAX 1Mb)
               </p>
-              {!IsSelected? (
-                <p class="text-red text-xs italic"> Please select a file</p>
+              {!IsSelected ? (
+                <p className="text-red text-xs italic"> Please select a file</p>
               ) : (
                 <></>
               )}
-              
-             
             </div>
           </div>
-          {checkValid}
+
           <button
             onClick={submitHandler}
             type="button"
-            className={submitValid?"text-white bg-red hover:opacity-90 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 opacity-50 cursor-not-allowed": "text-white bg-card hover:opacity-90 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"}
+            className={
+              !submitValid
+              ? "w-full text-white bg-red hover:opacity-20 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-red-800 opacity-50 cursor-not-allowed"
+              : "w-full text-white bg-card hover:opacity-90 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          }
           >
             Submit
           </button>
-         
         </form>
       </div>
     </div>
   );
 };
-export default Form;
+export default ClientForm;

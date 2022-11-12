@@ -7,8 +7,8 @@ function App() {
   return (
     // <ThanksPage/>
     <div className='bg-background h-full'>
-       <DevFormPage/>
-       {/* <ClientFormPage/> */}
+       {/* <DevFormPage/> */}
+       <ClientFormPage/>
     </div>
   );
 }

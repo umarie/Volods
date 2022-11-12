@@ -15,6 +15,7 @@ const ClientForm = () => {
   const [skills, setSkills] = useState("-");
   const [involvement, setInvolvment] = useState("up to 160 hours");
   const [duration, setDuration] = useState("1-3 months");
+  const [submitted, setSubmitted] = useState()
   const submitHandler = () => {
     if (gigType === "Project-Based") {
       axios({
@@ -30,7 +31,11 @@ const ClientForm = () => {
           "rate": rate,
         },
       }).then((response) => {
-        console.log(response);
+        if (response.status==200||response.status==201||response.status==202||response.status==203||response.status==204||response.status==205)
+        {
+          setSubmitted(true)
+        }
+        else setSubmitted(false)
       });
     }
     if (gigType === "Talent-Based") {
@@ -50,7 +55,11 @@ const ClientForm = () => {
           "rate": rate,
         },
       }).then((response) => {
-        console.log(response);
+        if (response.status==200||response.status==201||response.status==202||response.status==203||response.status==204||response.status==205)
+        {
+          setSubmitted(true)
+        }
+        else setSubmitted(false)
       });
     }
   };
@@ -89,7 +98,27 @@ const ClientForm = () => {
           <p className="font-bold text-5xl text-center">
             FOR CLIENTS
           </p>
-
+          { submitted===true &&(
+           <div className="bg-card border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-10" role="alert">
+           <div className="flex">
+              <div>
+               <p className="font-bold">Thanks {contactPerson} for submitting the form </p>
+               <p className="text-sm">We will reach out to you soon!</p>
+             </div>
+           </div>
+         </div>
+          )
+              }
+             { submitted===false &&
+            <div role="alert">
+            <div className="bg-red text-white font-bold rounded-t px-4 py-2 mt-10">
+              Oops! 
+            </div>
+            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+              <p>Something went wrong. Please try again!</p>
+            </div>
+          </div>
+              }
           <div className="flex flex-wrap -mx-3 mb-3 mt-5">
             <div className="w-full px-3 mb-6 md:mb-0">
               <label className="block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">

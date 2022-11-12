@@ -9,7 +9,7 @@ const DevForm = () => {
   const [positionTitle, setpositionTitle] = useState("-");
   const [linkedIn, setLinkedIn] = useState("https://www.linkedin.com/");
   const [CvLink, setCvLink] = useState("-");
-
+  const [submitted, setSubmitted] = useState()
   const submitHandler = () => {
     axios({
       url: "https://nocodeform.io/f/636f19969ff7ddfaf07cb3b1",
@@ -25,7 +25,11 @@ const DevForm = () => {
         "CvLink": CvLink,
       },
     }).then((response) => {
-      console.log(response);
+      if (response.status==200||response.status==201||response.status==202||response.status==203||response.status==204||response.status==205)
+        {
+          setSubmitted(true)
+        }
+        else setSubmitted(false)
     });
   };
   const checkValid = () => {
@@ -51,7 +55,7 @@ const DevForm = () => {
       positionTitle === "-" ||
       CvLink.length === 0 ||
       CvLink === "INVALID" ||
-      !CvLink.includes("https://")
+      !CvLink.includes("http://")
     )
       return false;
     else return true;
@@ -61,7 +65,27 @@ const DevForm = () => {
       <div className="w-9/12 rounded-xl  shadow-lg text-white mt-10 mx-auto ">
         <form className="w-full max-w-lg ">
           <p className="font-bold text-5xl text-center">FOR DEVELOPERS</p>
-
+          { submitted===true &&(
+           <div className="bg-card border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md mt-10" role="alert">
+           <div className="flex">
+              <div>
+               <p className="font-bold">Thanks {firstName} for submitting the form </p>
+               <p className="text-sm">We will reach out to you soon!</p>
+             </div>
+           </div>
+         </div>
+          )
+              }
+             { submitted===false &&
+            <div role="alert">
+            <div className="bg-red text-white font-bold rounded-t px-4 py-2 mt-10">
+              Oops! 
+            </div>
+            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+              <p>Something went wrong. Please try again!</p>
+            </div>
+          </div>
+              }
           <div className="flex flex-wrap -mx-3 mb-3 mt-5">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label className=" block uppercase tracking-wide text-gray-700 text-s font-bold mb-2">

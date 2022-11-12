@@ -8,8 +8,8 @@ function App() {
   return (
     <div className='bg-background h-full'>
        {/* <DevFormPage/> */}
-       <PrivacyPolicy/>
-       {/* <ClientFormPage/> */}
+       {/* <PrivacyPolicy/> */}
+       <ClientFormPage/>
     </div>
   );
 }

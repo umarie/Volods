@@ -16,9 +16,9 @@ const ClientForm = () => {
   const [involvement, setInvolvment] = useState("up to 160 hours");
   const [duration, setDuration] = useState("1-3 months");
   const [submitted, setSubmitted] = useState()
-  const submitHandler = () => {
+  const submitHandler = async() => {
     if (gigType === "Project-Based") {
-      axios({
+      await axios({
         url: "https://nocodeform.io/f/636f1a2b9ff7ddfaf07cb3b3",
         method: "POST",
         data: {
@@ -39,7 +39,7 @@ const ClientForm = () => {
       });
     }
     if (gigType === "Talent-Based") {
-      axios({
+      await axios({
         url: "https://nocodeform.io/f/636f1a589ff7ddfaf07cb3b4",
         method: "POST",
         data: {

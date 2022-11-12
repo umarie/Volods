@@ -1,8 +1,18 @@
 import ClientForm from "./ClientForm";
 import Client from "./Client.gif"
-import { useState } from "react";
+import { useState , useEffect} from "react";
+
+
+
+
 const DevFormPage=()=>{
     const [pic, setPic]=useState()
+
+    useEffect(() => {
+      showPicture()
+    }, [])
+    
+
     const showPicture=()=>{
         if(window.innerWidth <=960)
         {

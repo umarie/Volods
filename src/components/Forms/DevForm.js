@@ -10,8 +10,8 @@ const DevForm = () => {
   const [linkedIn, setLinkedIn] = useState("https://www.linkedin.com/");
   const [CvLink, setCvLink] = useState("-");
   const [submitted, setSubmitted] = useState()
-  const submitHandler = () => {
-    axios({
+  const submitHandler = async() => {
+    await axios({
       url: "https://nocodeform.io/f/636f19969ff7ddfaf07cb3b1",
       method: "POST",
       data: {

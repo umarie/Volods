@@ -13,6 +13,7 @@ import DevTest from './Components/Body/DevTest';
 import Footer from './Components/Layout/Footer';
 import AboutUs from './Pages/AboutUs';
 import Services from './Pages/Services';
+import BookaCall from './Components/Body/BookaCall';
 
 function App() {
 
@@ -28,15 +29,8 @@ function App() {
   return (
     <>
     {!disappearLoadingPage && <LoadingPage/>}
+    {disappearLoadingPage && <BookaCall/>}
 
-
-    
-    {/* {disappearLoadingPage && <NavBar/>}
-    {disappearLoadingPage && <LandingSecPage/>}
-    {disappearLoadingPage && <WhyUs/>}
-    {disappearLoadingPage && <HowItWorks/>}
-    {disappearLoadingPage && <DevTest/>}
-    {disappearLoadingPage && <Footer/>} */}
     <Routes>
         <Route path="/" element={disappearLoadingPage && [<NavBar/>,<LandingSecPage/>,<WhyUs/>,
       <HowItWorks/>, <DevTest/>, <Footer/>]}/>

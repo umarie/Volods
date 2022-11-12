@@ -83,6 +83,15 @@ export default function NavBar() {
                   For Developers
                 </Link>
               </li>
+              {logo && <li className="nav-item">
+                <Link
+                  to="/"
+                  className="nav-links hover:scale-90 hover:text-[#94C0D9]"
+                  onClick={closeMobileMenu}
+                >
+                  Book a call
+                </Link>
+              </li>}
             </ul>
           </div>
         </div>

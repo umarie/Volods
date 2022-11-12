@@ -49,6 +49,7 @@ module.exports = {
         '50%': { transform: 'scale(1.1)' },
         '100%': { transform: 'translateX(0%)' },
       },
+      
       slidedown: {
         '0%': { transform: 'translateY(-40%)'  },
         '50%': { transform: 'scale(1.3)' },

@@ -102,7 +102,7 @@ export default function Footer() {
             <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
               Terms & conditions
             </p>
-            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">About us</p>
+            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">Become our partner</p>
             <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">Careers</p>
             <p className="text-white font-[quicksand] mb-5 lg:ml-8 hover:cursor-pointer">FAQ's</p>
           </span>

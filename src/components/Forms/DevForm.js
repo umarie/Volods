@@ -12,7 +12,7 @@ const DevForm = () => {
 
   const submitHandler = () => {
     axios({
-      url: "https://nocodeform.io/f/63688c043ca7851619c75de3",
+      url: "https://nocodeform.io/f/636f19969ff7ddfaf07cb3b1",
       method: "POST",
       data: {
         "firstName": firstName,

@@ -18,7 +18,7 @@ const ClientForm = () => {
   const submitHandler = () => {
     if (gigType === "Project-Based") {
       axios({
-        url: "https://nocodeform.io/f/63688c043ca7851619c75de3",
+        url: "https://nocodeform.io/f/636f1a2b9ff7ddfaf07cb3b3",
         method: "POST",
         data: {
           "gigType": gigType,
@@ -35,7 +35,7 @@ const ClientForm = () => {
     }
     if (gigType === "Talent-Based") {
       axios({
-        url: "https://nocodeform.io/f/63688c043ca7851619c75de3",
+        url: "https://nocodeform.io/f/636f1a589ff7ddfaf07cb3b4",
         method: "POST",
         data: {
           "gigType": gigType,

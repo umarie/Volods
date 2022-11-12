@@ -67,7 +67,7 @@ export default function NavBar() {
             </Link>}
               <li className="nav-item">
                 <Link
-                  to="/"
+                  to="/hiredevs"
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
@@ -76,7 +76,7 @@ export default function NavBar() {
               </li>
               <li className="nav-item">
                 <Link
-                  to="/"
+                  to="/fordevelopers"
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
@@ -84,13 +84,15 @@ export default function NavBar() {
                 </Link>
               </li>
               {logo && <li className="nav-item">
-                <Link
-                  to="/"
+                <a
+                  href="https://calendly.com/volods"
+                  rel="noreferrer"
+              target="_blank"
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
                   Book a call
-                </Link>
+                </a>
               </li>}
             </ul>
           </div>

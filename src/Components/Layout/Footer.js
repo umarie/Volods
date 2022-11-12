@@ -7,6 +7,7 @@ import linkedin from "../../Images/linkedin.png";
 import instaplatform from "../../Images/instaPlatform.png";
 import fbplatform from "../../Images/facrbookplatform.png";
 import linkedplatform from "../../Images/linkedplatform.png";
+import {Link} from 'react-router-dom'
 
 export default function Footer() {
   return (
@@ -96,19 +97,34 @@ export default function Footer() {
           </div>
 
           <span className="flex flex-col items-center lg:flex-row mb-10">
+            <Link to='/privacypolicy'>
             <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
               Privacy Policy
             </p>
+            </Link>
+            
+            <Link to='/privacypolicy'>
             <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
               Terms & conditions
             </p>
-            <a href="https://calendly.com/volods/partnership?month=2022-12 "rel="noreferrer"
-                  target="_blank">
-            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">Become our partner</p>
+            </Link>
+            
+            <a
+              href="https://calendly.com/volods/partnership?month=2022-12 "
+              rel="noreferrer"
+              target="_blank"
+              >
+              <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
+                Become our partner
+              </p>
             </a>
-                      
-            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">Careers</p>
-            <p className="text-white font-[quicksand] mb-5 lg:ml-8 hover:cursor-pointer">FAQ's</p>
+            <Link to='/aboutus'>
+
+            <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
+              Join us!
+            </p>
+              </Link>
+           
           </span>
         </div>
         <p className="text-white text-[10px] flex justify-center font-[quicksand]">

@@ -3,6 +3,8 @@ import cvrocket from "../../Images/rocketcv2 1.png";
 import mobtestdev from "../../Images/mobtestdev.png";
 import testdev from "../../Images/testdevs.png";
 import { Link } from "react-router-dom";
+import client1 from '../../Images/clientTestimonial -2.png'
+import client2 from '../../Images/clientTestimonial.png'
 
 export default function DevTest() {
   const [deskview, setDeskview] = useState(true);
@@ -52,9 +54,14 @@ export default function DevTest() {
           <h1 className="text-[#94c0d9] font-[quicksand] mt-28 mb-10 p-5 font-bold text-xl text-center md:text-2xl md:pr-20 md:pl-20 lg:pr-48 lg:pl-48 xl:pr-[400px] xl:pl-[400px] 2xl:pr-[600px] 2xl:pl-[600px]">
             Service so good, we will restore your faith in remote work
           </h1>
+          <div className="flex flex-col justify-center items-center md:flex-row">
 
-          <div className="flex justify-center mt-10">
-            <Link to="">
+          <img src={client2} className='w-96 h-96 md:ml-[30%]' alt='client'/>
+          <img src={client1} className='w-96 h-96 md:mr-[30%]' alt='client'/>
+          </div>
+
+          <div className="flex justify-center mt-16 mb-10">
+            <Link to="/hiredevs">
               <button className="text-white w-44 font-[quicksand] h-12  z-20 rounded-md border-2 border-[#94C0D9] hover:bg-[#94C0D9]">
                 restore my faith
               </button>

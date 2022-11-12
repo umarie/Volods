@@ -14,6 +14,10 @@ import Footer from './Components/Layout/Footer';
 import AboutUs from './Pages/AboutUs';
 import Services from './Pages/Services';
 import BookaCall from './Components/Body/BookaCall';
+import DevFormPage from './Components/Forms/DevFormPage';
+import ClientFormPage from './Components/Forms/ClientFormPage'
+import PrivacyPolicy from './Components/Body/PrivacyPolicy';
+
 
 function App() {
 
@@ -27,6 +31,7 @@ function App() {
   }, []);
 
   return (
+
     <>
     {!disappearLoadingPage && <LoadingPage/>}
     {disappearLoadingPage && <BookaCall/>}
@@ -37,10 +42,15 @@ function App() {
       
         <Route path="/aboutus" element={<AboutUs />}/>
         <Route path="/services" element={<Services />}/>
+        <Route path="/fordevelopers" element={<DevFormPage />}/>
+        <Route path="/hiredevs" element={<ClientFormPage />}/>
+        <Route path="/privacypolicy" element={<PrivacyPolicy />}/>
     </Routes>
 
     </>
+
   );
 }
 
 export default App;
+

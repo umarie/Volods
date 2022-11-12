@@ -97,6 +97,11 @@ export default function AboutUs() {
             you’ll fit into Volods, and what you want to accomplish. We look
             forward to hearing from you! :) 
           </p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeY5tNjh6RwNK6ZMHYq2JQuLxQOG_UygEDqM1O93sk2lYVCwA/viewform"
+          rel="noreferrer"
+          target="_blank">
+            <button className='text-white w-52 mt-8 mb-14 font-[quicksand] h-12  z-20 rounded-md border-2 border-[#94C0D9] hover:bg-[#94C0D9]'>Jump into our Rocketship!</button>
+          </a>
         </div>
       </div>
       <Footer />

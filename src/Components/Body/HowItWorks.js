@@ -22,7 +22,7 @@ export default function HowItWorks() {
                 </div>
             </div>
             <div className='flex justify-center mt-28'>
-            <Link to=''>
+            <Link to='/hiredevs'>
             <button className='text-white w-44 font-[quicksand] h-12  z-20 rounded-md border-2 border-[#94C0D9] hover:bg-[#94C0D9]'>match me with a dev</button>
             </Link>
             </div>

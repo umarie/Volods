@@ -4,24 +4,36 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
     './node_modules/tw-elements/dist/js/**/*.js'
   ],
+  plugins: [require('tw-elements/dist/plugin')],
+
+
   theme: {
     extend: {},
+   
     screens: {
      
       // => @media (min-width: 640px) { ... }
-
+  
       'md': '800px',
       // => @media (min-width: 768px) { ... }
       'lg': '1024px',
       // => @media (min-width: 1024px) { ... }
-
+  
       'xl': '1155px',
       // => @media (min-width: 1280px) { ... }
-
+  
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
       '3xl':'1670px',
       'vxl':'2560px'
+    },
+    colors:{
+      background:'#131313',
+      white:'#FFFFFF',
+      card:'#94c0d9',
+      red:'#ff0000',
+      gray:"d3d3d3",
+      slate: "#334455"
     },
     animation: {
       'movement': 'movement 5s ease-in-out',
@@ -67,11 +79,15 @@ module.exports = {
         '0%, 100%': { transform: 'rotate(-8deg)' },
         '50%': { transform: 'rotate(8deg)' },
       }
-    }
+    
   },
-
+  
   fontFamily: {
     quicksand: ["Quicksand", "sans-serif"],
-  },
-  plugins: [require('tw-elements/dist/plugin')],
+  }
+  }
+
 }
+
+
+

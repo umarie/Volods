@@ -11,7 +11,7 @@ export default function AboutUs() {
     <>
       <NavBar />
       <div className="h-auto bg-[#131313]">
-        <div className="flex flex-col justify-center items-center pt-10">
+        <div className="flex flex-col justify-center items-center pt-24">
           <h1 className="text-[#94C0D9] text-2xl font-[quicksand] md:text-3xl">
             WE ARE
           </h1>

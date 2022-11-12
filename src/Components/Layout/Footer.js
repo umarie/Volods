@@ -102,7 +102,11 @@ export default function Footer() {
             <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">
               Terms & conditions
             </p>
+            <a href="https://calendly.com/volods/partnership?month=2022-12 "rel="noreferrer"
+                  target="_blank">
             <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">Become our partner</p>
+            </a>
+                      
             <p className="text-white font-[quicksand] mb-3 lg:ml-8 hover:cursor-pointer">Careers</p>
             <p className="text-white font-[quicksand] mb-5 lg:ml-8 hover:cursor-pointer">FAQ's</p>
           </span>

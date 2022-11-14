@@ -52,28 +52,33 @@ export default function AboutUs() {
             Ownership & Trust
           </p>
           <h1 className="text-[#94C0D9] text-2xl mt-14 font-[quicksand] md:text-4xl">
-            Our Lead
+            Leaders
           </h1>
           <div className="flex flex-col justify-center items-center mt-10 md:mt-16 md:flex-row">
             <div className="mt-10 md:mt-0 ">
-              <img src={person2} className='w-28 ml-3 md:mt-3 hover:opacity-30' alt="robot" />
-              <h1 className="text-[#94c0d9] font-[quicksand] text-center text-xl md:mt-3">Taimur Hussain</h1>
-              <h2 className="text-white font-[quicksand] text-center">Co-founder - CEO</h2>
+              <img src={person2} className='w-28 ml-28 md:mt-3 hover:opacity-30 md:ml-12  ' alt="robot" />
+              <h1 className="text-[#94c0d9] font-[quicksand] text-center text-xl md:mt-3">Taimur Khan</h1>
+              <h2 className="text-white font-[quicksand] text-center">Co-founder - CEO </h2>
+              <h3 className="text-white font-[quicksand] text-center">// the man behind the space & rocket theory </h3>
             </div>
             <div className="mt-10 md:mt-0 md:ml-20">
-              <img src={person1} className='w-28 ml-3 hover:opacity-30' alt="robot" />
+              <img src={person1} className='w-28 ml-32 hover:opacity-30 md:ml-16' alt="robot" />
               <h1 className="text-[#94c0d9] font-[quicksand] text-center text-xl">Umair Farooq</h1>
               <h2 className="text-white font-[quicksand] text-center">Co-founder - CTO</h2>
+              <h3 className="text-white font-[quicksand] text-center">// the guardian of the code and rocket technology. </h3>
+
             </div>
             <div className="mt-10 md:mt-0 md:ml-20 ">
-              <img src={person3} className='w-28 ml-3 hover:opacity-30' alt="robot" />
+              <img src={person3} className='w-28 ml-36 hover:opacity-30 md:ml-16' alt="robot" />
               <h1 className="text-[#94c0d9] font-[quicksand] text-center text-xl">Harris Aamir</h1>
               <h2 className="text-white font-[quicksand] text-center">Co-founder - COO</h2>
+              <h3 className="text-white font-[quicksand] text-center">// handles the operations. which kind? the galactic ones. </h3>
+
             </div>
           </div>
 
           <h1 className="text-[#94C0D9] text-2xl mt-16 font-[quicksand] md:text-4xl">
-            Work for us
+            Work with us
           </h1>
           <p className="text-md p-3 text-white font-[quicksand] text-center  md:text-xl">
             Jump into our Rocketship and let's explore together

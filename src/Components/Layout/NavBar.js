@@ -7,8 +7,8 @@ import volodslogo from '../../Images/VOLODS.png'
 
 
 export default function NavBar() {
-
-    const [click, setClick] = useState(false);
+  const page = window.location.href.split("/").pop();
+  const [click, setClick] = useState(false);
   const [logo, setLogo] = useState(false);
 
   const handleClick = () => {
@@ -50,7 +50,7 @@ export default function NavBar() {
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
                 <Link to="/aboutus" className="nav-links hover:scale-90 hover:text-[#94C0D9]" onClick={closeMobileMenu}>
-                  About Us
+                  {page==="aboutus" ? <p className='text-[#94C0D9]'>About Us</p> : <p>About Us</p> }
                 </Link>
               </li>
               <li className="nav-item">
@@ -59,7 +59,9 @@ export default function NavBar() {
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
-                  Our Services
+                      {page==="services" ? <p className='text-[#94C0D9]'>Our Services</p> : <p>Our Services</p> }
+              
+  
                 </Link>
               </li>
             {!logo && <Link to="/" onClick={closeMobileMenu}>
@@ -71,7 +73,8 @@ export default function NavBar() {
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
-                  Hire Talent
+                  
+                  {page==="hiredevs" ? <p className='text-[#94C0D9]'> For Clients</p> : <p> For Clients</p> }
                 </Link>
               </li>
               <li className="nav-item">
@@ -80,7 +83,9 @@ export default function NavBar() {
                   className="nav-links hover:scale-90 hover:text-[#94C0D9]"
                   onClick={closeMobileMenu}
                 >
-                  For Developers
+                    {page==="fordevelopers" ? <p className='text-[#94C0D9]'>For Developers</p> : <p>For Developers</p> }
+              
+               
                 </Link>
               </li>
               {logo && <li className="nav-item">

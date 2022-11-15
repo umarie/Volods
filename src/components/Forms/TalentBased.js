@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TalentBased = (props) => {
   const [role, setrole] = useState("-");
@@ -9,6 +9,15 @@ const TalentBased = (props) => {
   const durationHandler = (event) => {
     props.setDuration(event.target.value);
   };
+  useEffect(()=>{
+    props.setRole(role);
+    props.setSkills(skills);
+  },[role])
+  
+  useEffect(()=>{
+    props.setSkills(skills);
+  },[skills])
+
   return (
     <div>
       <div className="flex flex-wrap -mx-3 mb-3">
@@ -22,7 +31,6 @@ const TalentBased = (props) => {
             type="text"
             placeholder="What is the product you want to build? What tasks you expect to delegate to the developer? If you have a link to a job description, simply paste it here for a quick start            "
             onChange={(event) => {
-              props.setRole(event.target.body);
               setrole(event.target.value);
             }}
           />
@@ -49,7 +57,6 @@ const TalentBased = (props) => {
             type="text"
             placeholder="Type needed skills here (e.g. react, node.js, angular)"
             onChange={(event) => {
-              props.setSkills(event.target.body);
               setskills(event.target.value);
             }}
           />

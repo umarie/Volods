@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 const ProjectBased = (props) => {
   const [desc, setDesc]=useState("-");
-
+  useEffect(()=>{
+    props.setDescription(desc);
+  },[desc])
   return (
     <div>
       <div className="flex flex-wrap -mx-3 mb-3">
@@ -15,8 +18,9 @@ const ProjectBased = (props) => {
             type="text"
             placeholder="IOS app that will allow the users to book flights, hotel rooms....  "
             onChange={(event) => {
-              props.setDescription(event.target.body);
+            
               setDesc(event.target.value)
+              
             }}
           />
            {

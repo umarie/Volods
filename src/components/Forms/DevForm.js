@@ -10,10 +10,15 @@ const DevForm = () => {
   const [linkedIn, setLinkedIn] = useState("https://www.linkedin.com/");
   const [CvLink, setCvLink] = useState("-");
   const [submitted, setSubmitted] = useState()
+  const [buttonLable, setButtonLable]= useState("Submit");
+
   const submitHandler = async() => {
+    if(checkValid()!==false){
+    setButtonLable("Loading...");
     await axios({
       url: "https://nocodeform.io/f/636f19969ff7ddfaf07cb3b1",
       method: "POST",
+      mode:"cors",
       data: {
         "firstName": firstName,
         "lastName": lastName,
@@ -27,10 +32,16 @@ const DevForm = () => {
     }).then((response) => {
       if (response.status==200||response.status==201||response.status==202||response.status==203||response.status==204||response.status==205)
         {
-          setSubmitted(true)
+          setButtonLable("Submited");
+          setSubmitted(true);
+          window.scrollTo(0, 0)
         }
-        else setSubmitted(false)
+        else{
+          setButtonLable("Failed");
+          setSubmitted(false)
+        } 
     });
+  }
   };
   const checkValid = () => {
     if (
@@ -344,7 +355,7 @@ const DevForm = () => {
                 : "w-full text-white bg-card hover:opacity-90 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             }
           >
-            Submit
+            {buttonLable}
           </button>
         </form>
       </div>

@@ -15,33 +15,43 @@ const ClientForm = () => {
   const [skills, setSkills] = useState("-");
   const [involvement, setInvolvment] = useState("up to 160 hours");
   const [duration, setDuration] = useState("1-3 months");
-  const [submitted, setSubmitted] = useState()
+  const [submitted, setSubmitted] = useState();
+  const [buttonLable, setButtonLable]= useState("Submit");
+
   const submitHandler = async() => {
+   if(checkValid()!==false){
+    setButtonLable("Loading...");
     if (gigType === "Project-Based") {
       await axios({
         url: "https://nocodeform.io/f/636f1a2b9ff7ddfaf07cb3b3",
         method: "POST",
+        mode:"cors",
         data: {
           "gigType": gigType,
           "contactPerson": contactPerson,
           "email": email,
           "phone": phone,
-          "Projectdescription": description,
+          "ProjectDescription": description,
           "budgetType": budgetType,
           "rate": rate,
         },
       }).then((response) => {
         if (response.status==200||response.status==201||response.status==202||response.status==203||response.status==204||response.status==205)
         {
-          setSubmitted(true)
+          setButtonLable("Submited");
+          setSubmitted(true);
+          window.scrollTo(0, 0)
         }
-        else setSubmitted(false)
+        else {
+          setButtonLable("Failed");
+          setSubmitted(false)}
       });
     }
     if (gigType === "Talent-Based") {
       await axios({
         url: "https://nocodeform.io/f/636f1a589ff7ddfaf07cb3b4",
         method: "POST",
+        mode:"cors",
         data: {
           "gigType": gigType,
           "contactPerson": contactPerson,
@@ -57,11 +67,17 @@ const ClientForm = () => {
       }).then((response) => {
         if (response.status==200||response.status==201||response.status==202||response.status==203||response.status==204||response.status==205)
         {
-          setSubmitted(true)
+          setButtonLable("Submited");
+          setSubmitted(true);
+          window.scrollTo(0, 0)
         }
-        else setSubmitted(false)
+        else{
+          setButtonLable("Failed");
+          setSubmitted(false)
+        } 
       });
     }
+  }
   };
 
   const checkValid = () => {
@@ -85,6 +101,8 @@ const ClientForm = () => {
   };
   const gigTypeHandler = (event) => {
     setGigtype(event.target.value);
+    setButtonLable("Submit");
+    setSubmitted();
   };
 
   const budgetTypeHandler = (event) => {
@@ -332,8 +350,9 @@ const ClientForm = () => {
                   (checkValid()===false)? "w-full text-white bg-red hover:opacity-20 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-red-800 opacity-50 cursor-not-allowed"
                     : "w-full text-white bg-card hover:opacity-90 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                 }
+              
               >
-                Submit
+               {buttonLable}
               </button>
             </div>
           </div>

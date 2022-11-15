@@ -1,5 +1,5 @@
 import ClientForm from "./ClientForm";
-import Client from "./Client.gif"
+import Client from "../../Images/Client.gif"
 import { useState , useEffect} from "react";
 import NavBar from "../Layout/NavBar";
 import Footer from "../Layout/Footer";

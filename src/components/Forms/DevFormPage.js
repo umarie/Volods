@@ -1,5 +1,5 @@
 import DevForm from "./DevForm";
-import Devgif from "./Dev.gif";
+import Devgif from "../../Images/Dev.gif";
 import { useEffect, useState } from "react";
 import NavBar from "../Layout/NavBar";
 import Footer from "../Layout/Footer";

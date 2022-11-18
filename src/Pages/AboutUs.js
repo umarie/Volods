@@ -51,7 +51,7 @@ export default function AboutUs() {
           <p className="text-md mt-4 text-white font-[quicksand] text-center  md:text-xl">
             Ownership & Trust
           </p>
-          <h1 className="text-[#94C0D9] text-2xl mt-14 font-[quicksand] md:text-4xl">
+          {/* <h1 className="text-[#94C0D9] text-2xl mt-14 font-[quicksand] md:text-4xl">
             Leaders
           </h1>
           <div className="flex flex-col justify-center items-center mt-10 md:mt-16 md:flex-row">
@@ -75,7 +75,7 @@ export default function AboutUs() {
               <h3 className="text-white font-[quicksand] text-center">// handles the operations. which kind? the galactic ones. </h3>
 
             </div>
-          </div>
+          </div> */}
 
           <h1 className="text-[#94C0D9] text-2xl mt-16 font-[quicksand] md:text-4xl">
             Work with us

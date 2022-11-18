@@ -12,11 +12,13 @@ export default function NavBar() {
   const [logo, setLogo] = useState(false);
 
   const handleClick = () => {
+    window.scrollTo(0, 0)
     setClick(!click);
   };
 
   const closeMobileMenu = () => {
     setClick(false);
+    window.scrollTo(0, 0)
   };
 
   useEffect(() => {
